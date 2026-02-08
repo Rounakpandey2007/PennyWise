@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PennyWise - Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+    <div class="glow-spot"></div>
+
+    <nav>
+        <div class="logo">PennyWise</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#" class="active">Dashboard</a>
+            <a href="#">Wallet</a>
+            <a href="#">Settings</a>
+        </div>
+        <div class="user-profile">
+            <div class="avatar">RK</div>
+        </div>
+    </nav>
+
+    <section class="cards-section">
+        <h2 class="section-title">Manage Your <span class="highlight">Smart Wallet</span></h2>
+        
+        <div class="cards-wrapper">
+            <div class="card-placeholder">
+                <div class="add-icon">+</div>
+                <p>Add Card</p>
+            </div>
+
+            <div class="bank-card main-card">
+                <div class="card-top">
+                    <div class="card-chip"></div>
+                    <span class="card-contactless">)))</span>
+                </div>
+                <div class="card-number">2567 5647 8700 XXXX</div>
+                <div class="card-bottom">
+                    <div class="card-info">
+                        <span class="label">Card Holder</span>
+                        <span class="value">Joseph Alex</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="label">Valid</span>
+                        <span class="value">06/2026</span>
+                    </div>
+                    <div class="card-logo">
+                        <div class="circle c1"></div>
+                        <div class="circle c2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bank-card secondary-card">
+                <div class="card-top">
+                    <div class="card-logo-text">VISA</div>
+                </div>
+                <div class="card-number" style="opacity: 0.5;">**** **** **** 4289</div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="dashboard-grid">
+        
+        <div class="widget runway-widget">
+            <h3>💸 Financial Runway</h3>
+            <div class="runway-display">
+                <h1 id="runwayDays">24 Days</h1>
+                <p>until you run out of cash</p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 40%;"></div>
+            </div>
+            <p class="subtext">Based on your avg. daily spend of ₹850</p>
+        </div>
+
+        <div class="widget wallet-widget">
+            <h3>Your Wallet</h3>
+            <div class="card-stack">
+                <div class="credit-card gradient-1">
+                    <div class="card-chip"></div>
+                    <div class="card-number">•••• •••• •••• 4289</div>
+                    <div class="card-details">
+                        <span>HDFC Millennia</span>
+                        <span>₹1,25,000 Invested</span>
+                    </div>
+                </div>
+                <div class="credit-card gradient-2" style="top: 20px; transform: scale(0.95); opacity: 0.6; z-index: -1;"></div>
+            </div>
+        </div>
+
+        <div class="widget budget-widget" id="budgetCard">
+            <div class="header-row">
+                <h3>⚠️ Budget Control</h3>
+                <span class="status-badge" id="budgetStatus">Safe</span>
+            </div>
+            
+            <div class="meter-container">
+                <p>Current Monthly Spend: <strong style="color:white">₹18,500</strong></p>
+                <div class="budget-bar-bg">
+                    <div class="current-spend-fill" style="width: 70%;"></div>
+                    <div class="limit-line" id="limitLine" style="left: 80%;"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <label>Set Margin Limit (₹)</label>
+                <input type="range" id="marginSlider" min="10000" max="50000" value="22000" step="500">
+                <div class="slider-value" id="marginValue">₹22,000</div>
+            </div>
+        </div>
+
+        <div class="widget saver-widget">
+            <h3>🤖 Auto-Saver</h3>
+            <p class="subtext">Snipe small amounts into investments.</p>
+            
+            <div class="input-group">
+                <input type="number" id="saveAmount" placeholder="Amount (e.g. ₹50)">
+                <select id="frequency">
+                    <option>Per Transaction</option>
+                    <option>Daily</option>
+                    <option>Weekly</option>
+                    <option>Monthly</option>
+                </select>
+            </div>
+            
+            <div class="plan-selector">
+                <div class="plan active-plan">Safe (6%)</div>
+                <div class="plan">Aggressive (12%)</div>
+            </div>
+
+            <button class="btn-action" onclick="activateSaver()">Activate Auto-Save</button>
+        </div>
+
+        <div class="widget upi-widget">
+            <h3>⚡ Best UPI App for Now</h3>
+            <p class="subtext">Based on current offers</p>
+            
+            <ul class="upi-list">
+                <li class="upi-item recommended">
+                    <div class="upi-icon gpay">G</div>
+                    <div class="upi-details">
+                        <span class="app-name">Google Pay</span>
+                        <span class="offer">Scratch card up to ₹100</span>
+                    </div>
+                    <span class="badge-rec">Best</span>
+                </li>
+                <li class="upi-item">
+                    <div class="upi-icon phonepe">Pe</div>
+                    <div class="upi-details">
+                        <span class="app-name">PhonePe</span>
+                        <span class="offer">Flat ₹15 on petrol</span>
+                    </div>
+                </li>
+                <li class="upi-item">
+                    <div class="upi-icon paytm">P</div>
+                    <div class="upi-details">
+                        <span class="app-name">Paytm</span>
+                        <span class="offer">100 Cashback Points</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="widget discount-widget">
+            <h3>🛍️ Smart Buy Recommendations</h3>
+            <div class="offer-card">
+                <div class="offer-icon">🎧</div>
+                <div class="offer-info">
+                    <h4>Buying Electronics?</h4>
+                    <p>Use <strong>HDFC Card</strong> on Amazon.</p>
+                    <div class="tags">
+                        <span class="tag">₹2000 OFF</span>
+                        <span class="tag student">Student: Extra 5%</span>
+                    </div>
+                </div>
+            </div>
+             <div class="offer-card">
+                <div class="offer-icon">🍔</div>
+                <div class="offer-info">
+                    <h4>Ordering Food?</h4>
+                    <p>Use <strong>Zomato Gold</strong> (Student ID).</p>
+                    <div class="tags">
+                        <span class="tag">Free Delivery</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <section class="revenue-section">
+        <div class="dashboard-container">
+            
+            <div class="glass-card chart-card">
+                <div class="card-header">
+                    <h3>Revenue Chart</h3>
+                    
+                </div>
+
+                <div class="chart-wrapper">
+                    <div class="y-axis">
+                        <span>50k</span>
+                        <span>40k</span>
+                        <span>30k</span>
+                        <span>20k</span>
+                        <span>0</span>
+                    </div>
+
+                    <div class="bars-container">
+                        <div class="bar-group">
+                            <div class="bar" style="height: 40%;">
+                                <div class="tooltip">₹24k</div>
+                            </div>
+                            <span class="month">March</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 55%;">
+                                <div class="tooltip">₹30k</div>
+                            </div>
+                            <span class="month">April</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 70%;">
+                                <div class="tooltip">₹38k</div>
+                            </div>
+                            <span class="month">May</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 35%;">
+                                <div class="tooltip">₹20k</div>
+                            </div>
+                            <span class="month">June</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 80%;">
+                                <div class="tooltip">₹40k</div>
+                            </div>
+                            <span class="month">July</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 95%;">
+                                <div class="tooltip">₹50k</div>
+                            </div>
+                            <span class="month">Aug</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 50%;">
+                                <div class="tooltip">₹30k</div>
+                            </div>
+                            <span class="month">Sept</span>
+                        </div>
+                         <div class="bar-group">
+                            <div class="bar" style="height: 65%;">
+                                <div class="tooltip">₹35k</div>
+                            </div>
+                            <span class="month">Oct</span>
+                        </div>
+                         <div class="bar-group">
+                            <div class="bar" style="height: 45%;">
+                                <div class="tooltip">₹25k</div>
+                            </div>
+                            <span class="month">Nov</span>
+                        </div>
+                         <div class="bar-group">
+                            <div class="bar" style="height: 75%;">
+                                <div class="tooltip">₹39k</div>
+                            </div>
+                            <span class="month">Dec</span>
+                        </div>
+                         <div class="bar-group">
+                            <div class="bar" style="height: 60%;">
+                                <div class="tooltip">₹32k</div>
+                            </div>
+                            <span class="month">Jan</span>
+                        </div>
+                         <div class="bar-group">
+                            <div class="bar active" style="height: 15%;">
+                                <div class="tooltip">₹10k</div>
+                            </div>
+                            <span class="month">Feb</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card history-card">
+                <div class="card-header">
+                    <h3>Transactions</h3>
+                    <div class="dropdown">
+                        <span>All Data</span>
+                        <i class="arrow-down">▼</i>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="trans-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th style="text-align: right;">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FF5722;">RC</div>
+                                        <span>Robert Carter</span>
+                                    </div>
+                                </td>
+                                <td><span class="status pending">Pending</span></td>
+                                <td class="date-cell">June 14, 2026</td>
+                                <td class="amount positive">+₹2,438.71</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #2196F3;">DF</div>
+                                        <span>Daniel Foster</span>
+                                    </div>
+                                </td>
+                                <td><span class="status done">Done</span></td>
+                                <td class="date-cell">June 12, 2026</td>
+                                <td class="amount negative">-₹526.47</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #9C27B0;">JS</div>
+                                        <span>Jane Smith</span>
+                                    </div>
+                                </td>
+                                <td><span class="status done">Done</span></td>
+                                <td class="date-cell">June 10, 2026</td>
+                                <td class="amount negative">-₹1,200.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="script1.js"></script>
+</body>
+</html>

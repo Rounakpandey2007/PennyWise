@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PennyWise - Smart Budgeting & Savings</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="glow-spot"></div>
+
+    <nav>
+        <div class="logo">PennyWise</div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#process">Process</a>
+        </div>
+        <a href="main.html" class="btn-cta">Start Saving</a>
+    </nav>
+
+    <section class="hero">
+        <div class="badge-pill">🚀 Smart Budgeting for 2026</div>
+        <h1>Stop Tracking.<br>Start <span class="highlight">Accumulating.</span></h1>
+        <p>The AI-powered financial assistant that automates your savings, tracks "hidden" subscriptions, and helps you escape the debt spiral.</p>
+        <button class="btn-cta btn-lg">Get Your Free Plan</button>
+    </section>
+
+    <section class="features" id="features">
+        <h2 class="section-title">Why Money Disappears</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>💸 Financial Fragmentation</h3>
+                <p>Money leaks through dozens of apps, subscriptions, and hidden fees. We consolidate everything into one clear view.</p>
+            </div>
+            <div class="card">
+                <h3>📉 The Debt Spiral</h3>
+                <p>Unexpected expenses turn into high-interest debt. Our AI predicts cash flow gaps before they happen.</p>
+            </div>
+            <div class="card">
+                <h3>👀 Lifestyle Creep</h3>
+                <p>Earning more but saving less? We flag unnecessary spending increases in real-time.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="dashboard-preview" id="dashboard">
+        <div class="text-content">
+            <h2>See Your Money<br>In <span class="highlight">HD Clarity</span></h2>
+            <p class="subtitle">
+                Visualise your spending habits instantly. Our interactive dashboard breaks down every cent, categorizes it automatically, and highlights savings opportunities.
+            </p>
+            <ul class="feature-list">
+                <li>✅ Auto-Categorization (Rent, Food, Tech)</li>
+                <li>✅ "Safe-to-Spend" Daily Balance</li>
+                <li>✅ Subscription Cancellation Alerts</li>
+            </ul>
+        </div>
+
+        <div class="chart-wrapper">
+            <div class="chart-container">
+                <div class="badge">Live Spending</div>
+                <canvas id="budgetChart"></canvas>
+                <div class="chart-legend">
+                    <h3>₹1,420</h3>
+                    <p>Saved this month</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process" id="process">
+        <div class="step">
+            <div class="step-circle">1</div>
+            <div class="step-content">
+                <h3>Connect Accounts</h3>
+                <p>Securely link your bank accounts and credit cards with bank-level encryption.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-circle">2</div>
+            <div class="step-content">
+                <h3>AI Analysis</h3>
+                <p>Our algorithm scans for recurring subscriptions and wasteful spending patterns.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-circle">3</div>
+            <div class="step-content">
+                <h3>Automate Savings</h3>
+                <p>Set a goal, and we automatically move small amounts to your savings daily.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2024 PennyWise Financial Inc. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
